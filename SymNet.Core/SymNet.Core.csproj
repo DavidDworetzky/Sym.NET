@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD4B8AB2-E60B-417C-AF08-99814A6D9872}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SymNet.Core</RootNamespace>
+    <AssemblyName>SymNet.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\RecordPathExtensions.cs" />
+    <Compile Include="Extensions\SymServerConfigExtensions.cs" />
+    <Compile Include="Extensions\SymTypeExtensions.cs" />
+    <Compile Include="Models\Core\Account.cs" />
+    <Compile Include="Models\Core\Address.cs" />
+    <Compile Include="Models\Core\Card.cs" />
+    <Compile Include="Models\Core\Comment.cs" />
+    <Compile Include="Models\Core\CreditReport.cs" />
+    <Compile Include="Models\Core\Hold.cs" />
+    <Compile Include="Models\Core\Identification.cs" />
+    <Compile Include="Models\Core\Loan.cs" />
+    <Compile Include="Models\Core\Name.cs" />
+    <Compile Include="Models\Core\Note.cs" />
+    <Compile Include="Models\Core\Share.cs" />
+    <Compile Include="Models\Core\Tracking.cs" />
+    <Compile Include="Models\Core\Warning.cs" />
+    <Compile Include="Models\PortStatus.cs" />
+    <Compile Include="Models\SymConnectConfiguration.cs" />
+    <Compile Include="Models\Transaction\TransactionHistoryEntry.cs" />
+    <Compile Include="Network\ISymConnectConnectionManager.cs" />
+    <Compile Include="Network\MockSymConnectTcpManager.cs" />
+    <Compile Include="Network\SymConnectTcpManager.cs" />
+    <Compile Include="Network\SymServer.cs" />
+    <Compile Include="Network\SymServerConfig.cs" />
+    <Compile Include="Network\SymTcpClient.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\RecordPath.cs" />
+    <Compile Include="Serialization\SymConnectObject.cs" />
+    <Compile Include="Serialization\SymConnectProperty.cs" />
+    <Compile Include="Serialization\SymConnectSerializer.cs" />
+    <Compile Include="SymConnectMessage\SymConnectFMType.cs" />
+    <Compile Include="SymConnectMessage\SymConnectMessageType.cs" />
+    <Compile Include="SymConnectMessage\SymConnectRequestMessage.cs" />
+    <Compile Include="SymConnectMessage\SymConnectResponseCode.cs" />
+    <Compile Include="SymConnectMessage\SymConnectResponseMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
